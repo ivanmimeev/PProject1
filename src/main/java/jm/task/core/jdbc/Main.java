@@ -1,10 +1,11 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
 
 public class Main {
     public static void main(String[] args) {
-        UserServiceImpl userServiceImpl = new UserServiceImpl();
+        UserService userServiceImpl = new UserServiceImpl();
         userServiceImpl.createUsersTable();
         userServiceImpl.saveUser("Ivan", "Ivanov", (byte) 30);
         System.out.println("User с именем – Ivan добавлен в базу данных");
