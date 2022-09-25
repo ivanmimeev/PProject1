@@ -90,19 +90,15 @@ public class UserDaoJDBCImpl implements UserDao {
             }
             conn.commit();
         } catch (SQLException e) {
-            try {
-                conn.rollback();
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
-            }
+            throw new RuntimeException(e);
         }
         return list;
-
     }
+
 
     public void cleanUsersTable() {
         try (Statement statement = conn.createStatement()) {
-            statement.executeUpdate("TRUNCATE FROM user");
+            statement.executeUpdate("TRUNCATE TABLE user");
             conn.commit();
         } catch (SQLException e) {
             try {
