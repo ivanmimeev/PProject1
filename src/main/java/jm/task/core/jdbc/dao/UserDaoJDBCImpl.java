@@ -88,7 +88,7 @@ public class UserDaoJDBCImpl implements UserDao {
                 user.setAge(resultSet.getByte(4));
                 list.add(user);
             }
-            conn.commit();
+            conn.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
